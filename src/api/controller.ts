@@ -15,6 +15,8 @@ export function queryFilteredSongs(queryParams: SongQueryParams) {
   const normalizedSearchTerm = searchTerm?.toLowerCase();
 
   try {
+    // Please take into consideration that this is a mock implementation. In a real-world scenario, this would involve querying a database or an external API.
+    // The filtering logic here is basic and intended for demonstration purposes only.
     data = JSON.parse(sessionStorage.getItem("songsDb") || "");
     const filteredData = data.filter((song) => {
       if (genre && song.genre !== genre) {
@@ -45,6 +47,8 @@ export function queryAllSongs(includeMetadata?: boolean) {
   const response: Response<Song[]> = {} as Response;
 
   try {
+    // Please take into consideration that this is a mock implementation. In a real-world scenario, this would involve querying a database or an external API.
+    // The filtering logic here is basic and intended for demonstration purposes only.
     response.data = JSON.parse(sessionStorage.getItem("songsDb") || "");
 
     if (response?.data?.length && includeMetadata) {
@@ -79,6 +83,8 @@ export function updateSong(song: Partial<Song>) {
   const response: Response<Song> = {} as Response<Song>;
 
   try {
+    // Please take into consideration that this is a mock implementation. In a real-world scenario, this would involve querying a database or an external API.
+    // The filtering logic here is basic and intended for demonstration purposes only.
     data = JSON.parse(sessionStorage.getItem("songsDb") || "");
 
     if (!song.id) {
