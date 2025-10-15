@@ -1,4 +1,4 @@
-import { SkeletonCardLoader } from "../SkeletonLoader/SkeletonLoader";
+import { SkeletonCardLoader } from "../elements/SkeletonLoader/SkeletonLoader";
 import { SongCard } from "./SongCard";
 import { Column, Grid } from "@ui";
 import { useSongLibraryDataContext } from "src/features/SongLibrary/DataContext/SongLibraryDataContext";

@@ -1,8 +1,7 @@
-import { SongGrid } from "../../components/SongGrid/SongGrid";
 import { LibraryControls, Row } from "@ui";
 import { libraryContainer, spacer } from "./SongLibrary.css";
 import { SongLibraryDataContextProvider } from "./DataContext/SongLibraryDataContextProvider";
-import { SongQueue } from "src/components/SongQueue/SongQueue";
+import { SongGrid, SongQueue } from "src/components/elements";
 
 export function SongLibrary() {
   return (

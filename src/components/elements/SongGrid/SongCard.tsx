@@ -12,7 +12,7 @@ import { Button, Row } from "@ui";
 import { StarIcon } from "../Icons/StarIcon";
 import { useSongLibraryDataContext } from "src/features/SongLibrary/DataContext/SongLibraryDataContext";
 import { useAsync } from "@utils/useAsync";
-import { SkeletonCardLoader } from "../SkeletonLoader/SkeletonLoader";
+import { SkeletonCardLoader } from "../elements/SkeletonLoader/SkeletonLoader";
 import { AddSquareIcon } from "../Icons/AddSquareIcon";
 
 interface SongCardProps {

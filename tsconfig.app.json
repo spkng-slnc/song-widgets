@@ -27,8 +27,8 @@
     /* Aliases */
     "baseUrl": ".",
     "paths": {
-      "@ui": ["src/components"],
-      "@api/*": ["src/api/*"],
+      "@chems/*": ["src/components/*"],
+      "@api/*": ["src/api/service"],
       "@utils/*": ["src/utils/*"],
       "src/*": ["src/*"]
     }
