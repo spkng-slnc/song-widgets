@@ -37,7 +37,7 @@ export function SongQueue() {
         <p>No songs in queue</p>
       ) : (
         queue.map((song, index) => (
-          <Row key={song.id} styles={[queuedItem]}>
+          <Row key={`${song.id}-${index}`} styles={[queuedItem]}>
             <Column>
               <p>{song.title}</p>
               <p>
