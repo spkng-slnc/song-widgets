@@ -1,8 +1,8 @@
-import { SkeletonCardLoader } from "../elements/SkeletonLoader/SkeletonLoader";
 import { SongCard } from "./SongCard";
-import { Column, Grid } from "@ui";
 import { useSongLibraryDataContext } from "src/features/SongLibrary/DataContext/SongLibraryDataContext";
 import { emptyState, songGridWrapper } from "./SongGrid.css";
+import { Column, Grid } from "@chems/atoms";
+import { SkeletonCardLoader } from "src/components/elements/SkeletonLoader/SkeletonLoader";
 
 export function SongGrid() {
   const { songs } = useSongLibraryDataContext();

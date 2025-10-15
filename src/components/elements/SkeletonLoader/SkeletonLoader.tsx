@@ -1,4 +1,4 @@
-import { Card } from "../Card/Card";
+import { Card } from "@chems/atoms";
 import {
   skeleton,
   skeletonCard,
@@ -15,7 +15,10 @@ export function SkeletonCardLoader({ count = 3 }: SkeletonCardLoaderProps) {
   return (
     <>
       {cardArray.map((value, index) => (
-        <Card key={`${value}-${index}`} styles={[skeletonCard]} data-testid="skeleton-card">
+        <Card
+          key={`${value}-${index}`}
+          styles={[skeletonCard]}
+          data-testid="skeleton-card">
           <div className={`${skeleton} ${skeletonTitle}`} />
           <div className={`${skeleton} ${skeletonText}`} />
           <div className={`${skeleton} ${skeletonText}`} />

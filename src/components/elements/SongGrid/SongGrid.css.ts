@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { themeVars } from "../../theme.css";
+import { themeVars } from "src/theme.css";
 
 export const songCard = style([
   {

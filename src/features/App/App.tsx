@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { SongLibrary } from "../SongLibrary/SongLibrary";
-import { AppLayout, ErrorBoundary } from "@ui";
+import { ErrorBoundary } from "@chems/ErrorBoundary/ErrorBoundary";
+import { AppLayout } from "@chems/elements";
 
 export function App() {
   return (

@@ -1,6 +1,7 @@
 import { AlertDialog } from "@base-ui-components/react";
-import { Button } from "@ui";
+
 import { actions, backdrop, description, popup } from "./Dialog.css";
+import { Button } from "src/components/atoms/Button/Button";
 
 interface DialogProps {
   isOpen: boolean;
