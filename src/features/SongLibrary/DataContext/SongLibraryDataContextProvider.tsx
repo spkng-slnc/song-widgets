@@ -20,12 +20,22 @@ export function SongLibraryDataContextProvider({
   const [queue, setQueue] = useState<Song[]>([]);
 
   const addToQueue = useCallback((song: Song) => {
-    setQueue(currentQueue => [...currentQueue, song]);
+    setQueue((currentQueue) => [...currentQueue, song]);
   }, []);
 
-  const removeFromQueue = useCallback((songId: string) => {
-    setQueue(currentQueue => currentQueue.filter(song => song.id !== songId));
-  }, []);
+  const removeFromQueue = useCallback(
+    ({ songId, queueIndex }: { songId: string; queueIndex: number }) => {
+      setQueue((currentQueue) => {
+        if (currentQueue[queueIndex]?.id !== songId) {
+          return currentQueue;
+        }
+        const newQueue = [...currentQueue];
+        newQueue.splice(queueIndex, 1);
+        return newQueue;
+      });
+    },
+    []
+  );
 
   const fetchSongsCallback = useCallback(
     async () =>

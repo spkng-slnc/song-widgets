@@ -17,7 +17,13 @@ interface ISongLibraryDataContext {
   songs: ReturnType<typeof useAsync<Song[]>> | null;
   queue: Song[];
   addToQueue: (song: Song) => void;
-  removeFromQueue: (songId: string) => void;
+  removeFromQueue: ({
+    songId,
+    queueIndex,
+  }: {
+    songId: string;
+    queueIndex: number;
+  }) => void;
 }
 
 export const SongLibraryDataContext = createContext<ISongLibraryDataContext>({

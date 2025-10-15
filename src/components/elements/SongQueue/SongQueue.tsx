@@ -5,20 +5,28 @@ import { toMinutes } from "@utils/toMinutes";
 import { queueColumn, queuedItem } from "./SongQueue.css";
 import { Dialog } from "src/components/atoms/Dialog/Dialog";
 import { useState } from "react";
-import type { Song } from "@api/*";
+import type { Song } from "@api/service";
+
+interface QueueItem {
+  song: Song;
+  index: number;
+}
 
 export function SongQueue() {
   const { queue, removeFromQueue } = useSongLibraryDataContext();
-  const [songToRemove, setSongToRemove] = useState<Song | null>(null);
+  const [itemToRemove, setItemToRemove] = useState<QueueItem | null>(null);
 
-  const handleRemoveClick = (song: Song) => {
-    setSongToRemove(song);
+  const handleRemoveClick = (item: QueueItem) => {
+    setItemToRemove(item);
   };
 
   const handleConfirmRemove = () => {
-    if (songToRemove) {
-      removeFromQueue(songToRemove.id);
-      setSongToRemove(null);
+    if (itemToRemove) {
+      removeFromQueue({
+        songId: itemToRemove.song.id,
+        queueIndex: itemToRemove.index,
+      });
+      setItemToRemove(null);
     }
   };
 
@@ -28,7 +36,7 @@ export function SongQueue() {
       {!queue.length ? (
         <p>No songs in queue</p>
       ) : (
-        queue.map((song) => (
+        queue.map((song, index) => (
           <Row key={song.id} styles={[queuedItem]}>
             <Column>
               <p>{song.title}</p>
@@ -36,7 +44,7 @@ export function SongQueue() {
                 {song.artist} • {toMinutes(song.duration)}
               </p>
             </Column>
-            <Button onClick={() => handleRemoveClick(song)}>
+            <Button onClick={() => handleRemoveClick({ song, index })}>
               <RemoveSquareIcon width="1.5rem" height="1.5rem" />
             </Button>
           </Row>
@@ -44,16 +52,16 @@ export function SongQueue() {
       )}
 
       <Dialog
-        isOpen={!!songToRemove}
-        onOpenChange={(isOpen) => !isOpen && setSongToRemove(null)}
+        isOpen={!!itemToRemove}
+        onOpenChange={(isOpen) => !isOpen && setItemToRemove(null)}
         title="Remove from Queue"
         message={
-          songToRemove
-            ? `Are you sure you want to remove "${songToRemove.title}" by ${songToRemove.artist}?`
+          itemToRemove
+            ? `Are you sure you want to remove "${itemToRemove.song.title}" by ${itemToRemove.song.artist}?`
             : ""
         }
         onConfirm={handleConfirmRemove}
-        onCancel={() => setSongToRemove(null)}
+        onCancel={() => setItemToRemove(null)}
       />
     </Column>
   );
