@@ -19,4 +19,7 @@
 
 - [ ] Queue reorder
 - [ ] Library sorting
+- [ ] Multi-genre select
 - [ ] Album view
+- [ ] Create
+- [ ] Delete

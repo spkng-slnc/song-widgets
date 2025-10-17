@@ -22,6 +22,7 @@ export const starIconFull = style([
 export const songCardControlRow = style({
   gap: themeVars.spacing.md,
   justifyContent: "flex-end",
+  marginTop: "auto",
 });
 
 export const emptyState = style({
